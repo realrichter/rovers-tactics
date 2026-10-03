@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cream Flow Rovers, Tactics Board</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8D%BA%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#245a3b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg width="30" height="38" viewBox="0 0 30 38" aria-hidden="true"><path d="M4 8h22l-2.4 26.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8z" fill="#B8670F"/><path d="M4 8h22l-.5 6H4.5z" fill="#F4EAD3"/><path d="M3.5 3.5c3-2.2 6-1 8-.2 2.3-1.6 6-1.8 8 .2 2.6-.6 5.2.6 6.5 3.5H3.5z" fill="#F4EAD3"/><path d="M11 20v10M15 18v12M19 21v9" stroke="#E39B2D" stroke-width="1.2" stroke-linecap="round" opacity=".7"/></svg>
+    <div><b>Cream Flow Rovers</b><span>UCD Superleague 2026/27</span></div>
+  </div>
+  <button class="match-btn" id="matchBtn" type="button" aria-haspopup="dialog">
+    <div><div class="mb-opp" id="mbOpp"></div><div class="mb-date" id="mbDate"></div></div>
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <nav class="views" role="tablist" aria-label="Views">
+    <button role="tab" data-view="board" aria-selected="true">Board</button>
+    <button role="tab" data-view="rotation" aria-selected="false">Rotation</button>
+    <button role="tab" data-view="squad" aria-selected="false">Squad</button>
+  </nav>
+  <div class="sync" id="sync" data-s="local" role="status"><i></i><span>Loading</span></div>
+  <button type="button" class="authbtn" id="authBtn" hidden>Sign in</button>
+</header>
+<div class="banner" id="banner" hidden></div>
+
+<main>
+  <section id="view-board" class="board-view">
+    <aside class="rail card" id="rail" aria-label="Matchday squad"></aside>
+
+    <section class="stage">
+      <div class="toolbar card" id="toolbar"></div>
+      <div class="pitch-wrap"><div id="pitch" data-tool="move"></div></div>
+      <div class="toolbar card" id="tools2"></div>
+      <div class="legend" id="legend"></div>
+      <div class="shape-ctl card" id="shapeCtl"></div>
+    </section>
+
+    <aside class="insp card" aria-label="Match plan">
+      <div class="tabs" role="tablist" id="tabs">
+        <button role="tab" data-tab="plan" aria-selected="true">Game plan</button>
+        <button role="tab" data-tab="roles" aria-selected="false">Roles</button>
+        <button role="tab" data-tab="setp" aria-selected="false">Set pieces</button>
+        <button role="tab" data-tab="checks" aria-selected="false">Checks <span class="count" id="checkCount">0</span></button>
+      </div>
+      <div class="pane" id="pane"></div>
+    </aside>
+  </section>
+
+  <section id="view-rotation" class="wide" hidden></section>
+  <section id="view-squad" class="wide" hidden></section>
+</main>
+
+<dialog id="dlg"></dialog>
+<div class="dragghost" id="ghost" hidden></div>
+<div class="traitpop" id="traitPop" role="dialog" aria-label="Player profile" hidden></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="vendor/supabase-2.117.2.js"></script>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/logic.js"></script>
+<script src="js/roles.js"></script>
+<script src="js/render.js"></script>
+<script src="js/panes.js"></script>
+<script src="js/store.js"></script>
+<script src="js/events.js"></script>
+</body>
+</html>
